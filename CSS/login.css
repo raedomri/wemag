@@ -1,0 +1,23 @@
+/*start main rules*/
+body{
+    background-color: black;
+}
+/*end  main rules*/
+.login{
+    width: 300px;
+    margin: 100px auto;
+}
+.login input{
+    margin-bottom: 10px;
+
+}
+.login .form-control {
+    background-color: #EAEAEA;
+
+}
+.login .btn{
+    background-color: #008dde;
+}
+.login h3{
+    color: #008dde;
+}

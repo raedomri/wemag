@@ -1,0 +1,2 @@
+#this is error page to show 
+ErrorDocument 404 http://localhost/wemag/admin/404.php

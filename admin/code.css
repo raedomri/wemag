@@ -1,0 +1,58 @@
+.form-group{
+    flex-direction: column;
+  
+}
+ .form {
+   
+    width: 300px;
+    height: 40px;
+    padding-left: 30px;
+    border: radius 1px;
+    
+    
+
+}
+div i {
+  padding-left: 5px;
+   margin-top: 0px;
+   margin-left: 4px;
+   margin-bottom: 0px;
+   top:50px;
+    transform: translateY(-200%);
+    
+}
+.fa.fa-eye {
+    padding-left: 0px;
+     margin-top: 0px;
+     margin-left: 300px;
+     margin-bottom: 0px;
+     top:50px;
+      transform: translateY(-260%);
+}
+  .fa.fa-eye-slash {
+    padding-left: 0px;
+     margin-top: 0px;
+     margin-left: 300px;
+     margin-bottom: 0px;
+     top:50px;
+      transform: translateY(-250%);
+}
+div h3{
+    color:#19c8fa;
+    
+}
+.area{
+
+    width: 300px;
+   height: 200px;
+   
+    border: radius 1px;
+    margin-bottom: 5px;
+    
+}
+.f-group{
+    width: 300px;
+    height: 40px;
+    
+    border: radius 1px;
+}
