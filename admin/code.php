@@ -56,42 +56,52 @@ if(isset($_POST['podcast_btn']))
 
 
 $connection = mysqli_connect("localhost","root","","wetalkk");
-if(isset($_POST['wetallent_btn']))
+
 {
   
-  $title = $_POST['title'];
-  $subtitle = $_POST['subtitle'];
-  $description = $_POST['description'];
-  $images = $_FILES["faculty_image"]['name'];
+  
 
-  if(file_exists("upload/" .$_FILES["faculty_image"]['name']))
-  {
-   $store =  $_FILES["faculty_image"]['name'];
-   $_SESSION['status']="image already exists. '.$store.'";
-   header('Location: wetallent.php');
-
-
-  }
-  else
-  {
+   
 
   
-   $query =" INSERT INTO wetallent (`title`,`subtitle`,`description`,`images`) VALUES
+  
+   
+   $msg = "";
+  
+   // If upload button is clicked ...
+   if(isset($_POST['wetallent_btn'])){
+   
+    $title = $_POST['title'];
+  $subtitle = $_POST['subtitle'];
+  $description = $_POST['description'];
+  $images = $_FILES["faculty_image"]["name"];
+  $tempname = $_FILES["faculty_image"]["tmp_name"]; 
+  $folder = "ulpoad/".$image;
+           
+    
+         // Get all the submitted data from the form
+         $sql =" INSERT INTO wetallent ('title','subtitle','description','images') VALUES
     ('$title','$subtitle','$description','$images') ";
-   $query_run = mysqli_query($connection, $query);
-   if($query_run)
-   {
-     move_uploaded_file($_FILES["faculty_image"]['tmp_name'],  "upload/".$_FILES["faculty_image"]["name"]);
-     $_SESSION['success'] = "wetallent us added";
-     header('Location: wetallent.php');
+     $connection = mysqli_connect("localhost", "root", "", "wetallent");
+   
+   
+         // Execute query
+         mysqli_query($connection, $sql);
+           
+         // Now let's move the uploaded image into the folder: image
+         if (move_uploaded_file($tempname, $folder))  {
+          $_SESSION['success'] = "wettalnet us added";
+          header('Location: wettalnet.php');
+         }
+         else
+         {
+          $_SESSION['success'] = "wettalnet us not  added";
+          header('Location: wetallent.php');
+       }
    }
-   else
-   {
-     $_SESSION['success'] = 'wetallent us not added';
-     header('Location: wetallent.php');
-   }
+   $result = mysqli_query($connection, "SELECT * FROM wetallent");
 }
-}
+
 
 
 

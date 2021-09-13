@@ -142,9 +142,41 @@
     <!--start subscribe-->
     <div class="subscribe">
         <div class="container">
-            <form action="">
+            <form action="wemag.php" method="POST">
+                <?php
+                $useremail ="";
+                if(isset($_POST['Subscribe'])){
+                    $useremail= $_POST['email'];
+                if(filter_var($useremail, FILTER_VALIDATE_EMAIL)){
+                     $subject= "thanks for subscribing us - Wetalk";
+                     $message="thanks";
+                     $sender="From: omri.raed@esprit.tn";
+                     if(mail($useremail, $subject, $message, $sender)){
+                        ?>
+                        <div class="alertsuccess">  a  valid Email</div>
+                        <?php
+                        $useremail ="";
+
+                     }else{
+                        ?>
+                        <div class="alerterror"> in a not  valid Email</div>
+                        <?php
+
+                     }
+                }
+                else{
+
+                   ?>
+                   <div class="alerterror"> <?php echo $useremail ?> in a not valid Email</div>
+                   <?php
+                }
+                }
+                
+                
+                
+                ?>
                 <i class="far fa-envelope fa-lg"> </i>
-                <input type="email" name="mail" placeholder="Your Email">
+                <input type="email" name="email" placeholder="Your Email" required value="<?php echo $useremail ?>">
                 <input type="submit" value="Subscribe"  />
             </form>
             <p>WE TALK est le blog de WeCodeLand</p>
@@ -163,7 +195,7 @@
                          <input  class="main-input" type="text" name="t1" placeholder="Your Name">
                          <input  class="main-input" type="email" name="t2" placeholder="Your Email">
                          <textarea  class="main-input" name="m" placeholder="Your Message" ></textarea>
-                         <input type="submit" value="Send Message">
+                         <input type="submit" name="" value="Send Message">
                      </form>
                      <div class="info">
                          <h4> Get In Touch </h4>

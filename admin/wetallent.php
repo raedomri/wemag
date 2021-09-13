@@ -57,9 +57,9 @@ include ('includes/navbar.php');
                             </div>
                             <div class="col-sm-6">
                                 
-                                <input type="file"  name="faculty_image"  class="f-group"
+                                <input type="file"  name="faculty_image" id="faculty_image"  class="f-group"
                              
-                                    placeholder="Upload Image" required>
+                                    placeholder="Upload Image" >
                                     
                             </div>
                         </div>
